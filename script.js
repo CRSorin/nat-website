@@ -12,11 +12,11 @@ const main = document.querySelector(".main");
 const logo = document.querySelector(".logo");
 const mainNav = document.querySelector(".main--nav");
 // Toggle nav on click on the nav mobile btn
-btnNav?.addEventListener("click", function () {
+btnNav.addEventListener("click", function () {
   main.classList.toggle("nav-open");
 });
 // Close main nav if click on backdrop
-mainNav?.addEventListener("click", function () {
+mainNav.addEventListener("click", function () {
   main.classList.remove("nav-open");
 });
 
@@ -42,8 +42,7 @@ const obsBtn = new IntersectionObserver(
     threshold: 0,
   }
 );
-if (!!mainHeader)
-  obsBtn.observe(mainHeader);
+obsBtn.observe(mainHeader);
 
 ///////////////////////////////////
 // Cancel pointer events for nav item poiting to current page
@@ -204,7 +203,7 @@ if (tabsContainer) {
 const imgTargets = document.querySelectorAll("img[data-src]");
 const body = document.querySelector("body");
 
-const loadImg = function (entries) {
+const loadImg = function (entries, observer) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
     entry.target.src = entry.target.dataset.src;
