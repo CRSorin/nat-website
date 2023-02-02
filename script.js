@@ -266,7 +266,7 @@ const slider = function () {
   if (document.title === "Natassja Velasco") {
     setInterval(() => {
       btnRight.click();
-    }, 3000);
+    }, 4000);
 
     // Event Handlers
     btnRight.addEventListener("click", nextSlide);
