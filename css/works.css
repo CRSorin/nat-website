@@ -63,6 +63,10 @@
   overflow: hidden;
 }
 
+.portfolio__item--cebu-2023-refresh {
+  background-image: url(../img/portfolio-icons/400_18.png);
+}
+
 .portfolio__item--psbank {
   background-image: url(../img/portfolio-icons/400_1.png);
 }
