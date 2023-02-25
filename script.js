@@ -279,3 +279,49 @@ const slider = function () {
   }
 };
 slider();
+
+///////////////////////////////
+// Set document cookie for data collection
+
+const cookiesModal = document.querySelector(".cookies--modal");
+const cookiesModalBtn = document.querySelector(".cookies--modal__btn");
+
+function setCookie(name, value, days) {
+  let expires = new Date();
+  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+}
+
+function getCookie(name) {
+  let cookies = document.cookie.split("; ");
+  for (let i = 0; i < cookies.length; i++) {
+    let parts = cookies[i].split("=");
+    console.log(parts);
+    if (parts[0] === name) {
+      return decodeURIComponent(parts[1]);
+    }
+  }
+  return null;
+}
+
+function showModal() {
+  cookiesModal.style.display = "block";
+}
+
+function hideModal() {
+  cookiesModal.style.display = "none";
+}
+
+function acceptCookies() {
+  setCookie("acceptCookies", "true", 30);
+  hideModal();
+}
+
+window.onload = function () {
+  let acceptCookies = getCookie("acceptCookies");
+  if (!acceptCookies) {
+    showModal();
+  }
+};
+
+// cookiesModalBtn.addEventListener("click", acceptCookies);

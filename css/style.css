@@ -509,3 +509,37 @@ article {
   width: 100%;
   height: 78rem !important;
 }
+
+.cookies--modal {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(42, 43, 47, 0.8);
+  z-index: 9999;
+}
+
+.cookies--modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ebe3d2;
+  padding: 2rem;
+}
+
+.cookies--modal__btn {
+  background-color: #ff5f00;
+  border: none;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.563rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.cookies--modal p {
+  font-size: 1.563rem;
+}
