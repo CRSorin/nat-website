@@ -510,7 +510,7 @@ article {
   height: 78rem !important;
 }
 
-/* .cookies--modal {
+.cookies--modal {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -542,4 +542,4 @@ article {
 
 .cookies--modal p {
   font-size: 1.563rem;
-} */
+}
