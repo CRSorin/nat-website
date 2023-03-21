@@ -59,7 +59,7 @@ const aboutDescEl = document.querySelector(".about--description");
 if (aboutDescEl) {
   if (window.innerWidth < 945) {
     aboutDescEl.innerHTML =
-      "Armed with 6 years of on-hand agency experience, I am a well-rounded and versatile creative.<br> As an insightful and strategic thinker, I believe in purpose-driven, relatable design and campaigns that deliver the work.";
+      "Armed with 7 years of on-hand agency experience, I am a well-rounded and versatile creative.<br> As an insightful and strategic thinker, I believe in purpose-driven, relatable design and campaigns that deliver the work.";
   }
 }
 
@@ -286,42 +286,44 @@ slider();
 const cookiesModal = document.querySelector(".cookies--modal");
 const cookiesModalBtn = document.querySelector(".cookies--modal__btn");
 
-function setCookie(name, value, days) {
-  let expires = new Date();
-  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-}
+if (cookiesModal && cookiesModalBtn) {
+  function setCookie(name, value, days) {
+    let expires = new Date();
+    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+  }
 
-function getCookie(name) {
-  let cookies = document.cookie.split("; ");
-  for (let i = 0; i < cookies.length; i++) {
-    let parts = cookies[i].split("=");
-    console.log(parts);
-    if (parts[0] === name) {
-      return decodeURIComponent(parts[1]);
+  function getCookie(name) {
+    let cookies = document.cookie.split("; ");
+    for (let i = 0; i < cookies.length; i++) {
+      let parts = cookies[i].split("=");
+      // console.log(parts);
+      if (parts[0] === name) {
+        return decodeURIComponent(parts[1]);
+      }
     }
+    return null;
   }
-  return null;
-}
 
-function showModal() {
-  cookiesModal.style.display = "block";
-}
+  function showModal() {
+    cookiesModal.style.display = "block";
+  }
 
-function hideModal() {
-  cookiesModal.style.display = "none";
-}
+  function hideModal() {
+    cookiesModal.style.display = "none";
+  }
 
-function acceptCookies() {
-  setCookie("acceptCookies", "true", 7);
-  hideModal();
-}
-
-window.onload = function () {
-  let acceptCookies = getCookie("acceptCookies");
-  if (acceptCookies) {
+  function acceptCookies() {
+    setCookie("acceptCookies", "true", 7);
     hideModal();
-  } else {
-    showModal();
   }
-};
+
+  window.onload = function () {
+    let acceptCookies = getCookie("acceptCookies");
+    if (acceptCookies) {
+      hideModal();
+    } else {
+      showModal();
+    }
+  };
+}
